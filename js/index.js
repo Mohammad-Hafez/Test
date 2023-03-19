@@ -45,3 +45,5 @@ sectionLinks.click(function () {
     new validation();
   }
 });
+let date = new Date().getFullYear();
+$("#currentYear").html(date);
