@@ -15,7 +15,7 @@ $("#contactLink").click(() => {
 $(".closeDetailsBtn").click(() => {
   $("#details").hide();
   $("#home").show();
-     });
+    });
 // Get the section links
 const sectionLinks = $(".sectionLink");
 // Hide all sections except the first one

@@ -1,5 +1,4 @@
 "use strict";
-/// <reference types="../@types/jquery" />
 import { getHomeMeals } from "./home.js";
 export class search {
   constructor() {

@@ -21,6 +21,4 @@ toogleSidebar() {
         // *NOTE - annimate sidebar links
         this.sidebarLinks.show(1000);
         $("#toggleSidebar").addClass("opened");
-    }
-}
-}
+    }}}

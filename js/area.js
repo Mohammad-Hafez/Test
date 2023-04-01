@@ -6,18 +6,13 @@ export class mealArea {
   }
   async getAreaApi() {
     try {
-      let areaAPI = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/list.php?a=list`
-      );
+      let areaAPI = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`);
       let areaApiResult = await areaAPI.json();
       this.displayAllAreas(areaApiResult);
     } catch {
       console.error(error);
-      $(".areaRow").html(
-        `<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`
-      );
-    }
-  }
+      $(".areaRow").html(`<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`);
+    }}
   displayAllAreas(api) {
     let areaBox = ``;
     for (let i = 0; i < api.meals.length && i < 20; i++) {
@@ -31,23 +26,16 @@ export class mealArea {
     document.querySelector(".areaRow").innerHTML = areaBox;
     let selectedArea = $(".areaConent");
     $(selectedArea).click((e) => {
-        let targetArea = $(e.target).attr("id");
+      let targetArea = $(e.target).attr("id");
       this.getMealByArea(targetArea , `a`);
-    });
-  }
+    });}
   async getMealByArea(area , dep) {
     try {
-      let mealsCatAPI = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?${dep}=${area}`
-      );
+      let mealsCatAPI = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?${dep}=${area}`);
       let mealsCatApiResult = await mealsCatAPI.json();
       let mealArea = new categories();
       mealArea.displayMealsByCat(mealsCatApiResult);
     } catch {
       console.error(error);
-      $(".mainCat").html(
-        `<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`
-      );
-    }
-  }
-}
+      $(".mainCat").html(`<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`);
+    } }}

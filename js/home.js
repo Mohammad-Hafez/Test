@@ -1,5 +1,4 @@
 "use strict";
-/// <reference types="../@types/jquery" />
 import { details } from "./details.js";
 // *ANCHOR - Random meals class in Home page and export it to other classes to get API and display data in some sections which have same UI we can consider it THE MAIN CLASS 
 export class getHomeMeals {
@@ -10,7 +9,6 @@ export class getHomeMeals {
       this.loader.fadeOut(500, () => {
         $("body").css("overflow", "auto");
         $("#sidebarSec").fadeIn();
-      
       //*NOTE -  call function that responsible for return data in home page
       this.getApi(`search.php?s=`, ` `);
       this.details = new details();
@@ -26,8 +24,7 @@ export class getHomeMeals {
       console.error(error);
       // Display an error message to the user
       $("#allMealsContainer").html(`<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`);
-    }
-  }
+    }}
   // *LINK - display data from API function:
   displayData(data) {
     $("#home").show(500); // show the home section when the user types in a search term
@@ -40,17 +37,13 @@ export class getHomeMeals {
                           <figcaption id=${data.meals[i].idMeal} class="mealLabel"><p class="m-0 ps-2 mealName">${data.meals[i].strMeal}</p></figcaption>
                       </div>
                   </div>`;
-      }
-    } else {
+      }} else {
       cartona = `<p class="yellow-color">No results found</p>`;
     }
     document.querySelector("#allMealsContainer").innerHTML = cartona;
     $("#allMealsContainer").click((e) => {
       $("#loader").fadeIn(300);
       this.mealId = $(e.target).attr("id");
-      // this.showMealDetails(this.mealId);
       this.details.showMealDetails(this.mealId);
       $("#loader").fadeOut(300);
-    })
-  }
-}
+    }) }}

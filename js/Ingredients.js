@@ -11,30 +11,18 @@ export class mealIngredients {
       this.displayAllIngredient(IngredientApiResult);
     } catch {
       console.error(error);
-      $(".ingredientRow").html(
-        `<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`
-      );
-    }
-  }
+      $(".ingredientRow").html(`<p class="yellow-color">Oops! Something went wrong. Please try again later.</p>`);
+    } }
   displayAllIngredient(api) {
     let ingredientBox = ``;
     for (let i = 0; i < api.meals.length && i < 20; i++) {
       ingredientBox += `<div class="col-md-3 text-center  text-white">
-                    <div class="ingredientConent cursor-pointer text-white" id=${api.meals[i].strIngredient
-        }>
-                        <i class="fa-solid fa-utensils fs-2" id=${api.meals[i].strIngredient
-        }></i>
-                        <h2 id=${api.meals[i].strIngredient
-        } >${api.meals[i].strIngredient
-        }</h2>
-        <p id=${api.meals[i].strIngredient} >${api.meals[
-          i
-        ].strDescription
-          .split(" ")
-          .slice(0, 20)
-          .join(" ")} </p>
-                    </div>
-                </div>`;
+                          <div class="ingredientConent cursor-pointer text-white" id=${api.meals[i].strIngredient}>
+                            <i class="fa-solid fa-utensils fs-2" id=${api.meals[i].strIngredient}></i>
+                            <h2 id=${api.meals[i].strIngredient} >${api.meals[i].strIngredient}</h2>
+                            <p id=${api.meals[i].strIngredient} >${api.meals[i].strDescription.split(" ").slice(0, 20).join(" ")}</p>
+                          </div>
+                        </div>`;
     }
     $(".ingredientRow").html(ingredientBox);
     document.querySelector(".ingredientRow").innerHTML = ingredientBox;
@@ -44,5 +32,4 @@ export class mealIngredients {
         let getMealByIngredient = new mealArea();
         getMealByIngredient.getMealByArea(targetIngredient , "i");
       })
-    }
-  }
+    } }

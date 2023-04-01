@@ -4,7 +4,7 @@ export class details {
   constructor() {
     $(".closeDetailsBtn").click(() => {
       $("#details").hide()
-        $("#home").show();
+      $("#home").show();
     });
   }
   async showMealDetails(data) {
@@ -42,13 +42,9 @@ export class details {
                             <h3>area :<span id="detailArea"> ${data.meals[0].strArea}</span></h3>
                             <h3>Category :<span id="detailCategory "> ${data.meals[0].strCategory}</span></h3>
                             <h3>Recipes :</h3>
-                            <ul class="p-0 recipesContainer flex-wrap d-flex align-items-center list-style-none justify-content-start">
-                                ${ingredients}
-                            </ul>
+                            <ul class="p-0 recipesContainer flex-wrap d-flex align-items-center list-style-none justify-content-start"> ${ingredients}</ul>
                             <h3>Tags :</h3>
-                            <ul class="tagsContainer p-0 flex-wrap d-flex align-items-center list-style-none justify-content-start">
-                                ${tagsStr}
-                            </ul>
+                            <ul class="tagsContainer p-0 flex-wrap d-flex align-items-center list-style-none justify-content-start">${tagsStr}</ul>
                             <a href="${data.meals[0].strYoutube}" target="_blank" class="btn btn-danger">youtube</a>
                             <a href="${data.meals[0].strSource}" target="_blank" class="btn btn-success">source</a>
                         </div>
